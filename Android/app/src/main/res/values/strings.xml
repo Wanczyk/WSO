@@ -1,3 +1,57 @@
 <resources>
     <string name="app_name">WSO</string>
+    <string name="IP">IP</string>
+    <string name="default_IP">192.168.0.22</string>
+
+    <string name="password">password</string>
+    <string name="default_password">pass</string>
+
+    <string name="user_name">user name</string>
+    <string name="default_user_name">pi</string>
+
+    <string name="conn_btn">Connect and get data</string>
+
+    <string name="txt">Connect first\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+Connect and get data\n
+the end
+    </string>
 </resources>
