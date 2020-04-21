@@ -24,7 +24,7 @@ int main()
             return 0;
         }
         if (ev.type == EV_KEY && ev.value == 1) {
-            output = fopen("/home/pi/wso/.output.txt", "a+");
+            output = fopen("/home/pi/WSO/.output.txt", "a+");
             printf("Event type: %d\nE\tcode: %d\n\tValue: %d\n", ev.type, ev.code, ev.value);
             fprintf(output,"%d\n", ev.code);
             fflush(stdout);
