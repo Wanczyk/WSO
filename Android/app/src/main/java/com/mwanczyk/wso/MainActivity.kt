@@ -189,6 +189,7 @@ class MainActivity : AppCompatActivity() {
             val lineList = mutableListOf<String>()
             var output : String = ""
             var to_left = 0
+            var letter = ""
             inputStream.bufferedReader().useLines { lines -> lines.forEach { lineList.add(it)} }
             lineList.forEach loop@{
                 when {
@@ -203,17 +204,20 @@ class MainActivity : AppCompatActivity() {
                         }
                         return@loop
                     }
-                    it.toInt()==28 -> {
-                        output += "\n"
-                        return@loop
-                    }
                 }
+                letter = key_list[it.toInt()]
                 when {
                     to_left>0 -> {
+                        if(it.toInt()==28) {
+                            letter = "\n"
+                        }
+                        else{
+
+                        }
                         output = if(it.toInt()==14){
-                            output.substring(0, output.length - to_left - 1) + key_list[it.toInt()] + output.substring(output.length - to_left, output.length)
+                            output.substring(0, output.length - to_left - 1) + letter + output.substring(output.length - to_left, output.length)
                         } else {
-                            output.substring(0, output.length - to_left) + key_list[it.toInt()] + output.substring(output.length - to_left, output.length)
+                            output.substring(0, output.length - to_left) + letter + output.substring(output.length - to_left, output.length)
                         }
                     }
                     else -> {
@@ -221,7 +225,7 @@ class MainActivity : AppCompatActivity() {
                             output = output.substring(0, output.length - 1)
                         }
                         else {
-                            output += key_list[it.toInt()]
+                            output += letter
                         }
                     }
                 }
