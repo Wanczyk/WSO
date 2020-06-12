@@ -151,7 +151,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        readKeysNumbers()
         val folder = filesDir
         val f = File(folder, "WSO")
         f.mkdir()
@@ -245,23 +244,18 @@ fun executeRemoteCommand(username: String,
     val session = jsch.getSession(username, hostname, port)
     session.setPassword(password)
 
-    // Avoid asking for key confirmation.
     val properties = Properties()
     properties["StrictHostKeyChecking"] = "no"
     session.setConfig(properties)
 
     session.connect()
-    // Create SSH Channel.
     val sshChannel = session.openChannel("exec") as ChannelExec
     val outputStream = ByteArrayOutputStream()
     sshChannel.outputStream = outputStream
 
-    // Execute command.
     sshChannel.setCommand("mv WSO/.output.txt WSO/.output-old.txt")
-//    sshChannel.setCommand("ls -la")
     sshChannel.connect()
 
-    // Sleep needed in order to wait long enough to get result back.
     Thread.sleep(1_000)
     sshChannel.disconnect()
 
