@@ -32,7 +32,7 @@ public val key_list = listOf<String>(
     "0",
     "-",
     "=",
-    "Backspace",
+    "",
     "Tab",
     "Q",
     "W",
@@ -193,6 +193,7 @@ class MainActivity : AppCompatActivity() {
             lineList.forEach loop@{
                 when {
                     it.toInt()==105 -> {
+                        if(to_left <= output.length)
                         to_left++
                         return@loop
                     }
@@ -207,15 +208,21 @@ class MainActivity : AppCompatActivity() {
                         return@loop
                     }
                 }
-                println("dupa21"+ it.toInt())
                 when {
                     to_left>0 -> {
-                        println("dupa" + it)
-//                        output += key_list[it.toInt()]
-                        output = output.substring(0, output.length - to_left) + key_list[it.toInt()] + output.substring(output.length - to_left, output.length)
+                        output = if(it.toInt()==14){
+                            output.substring(0, output.length - to_left - 1) + key_list[it.toInt()] + output.substring(output.length - to_left, output.length)
+                        } else {
+                            output.substring(0, output.length - to_left) + key_list[it.toInt()] + output.substring(output.length - to_left, output.length)
+                        }
                     }
                     else -> {
-                        output += key_list[it.toInt()]
+                        if(it.toInt()==14) {
+                            output = output.substring(0, output.length - 1)
+                        }
+                        else {
+                            output += key_list[it.toInt()]
+                        }
                     }
                 }
                 println(output)
